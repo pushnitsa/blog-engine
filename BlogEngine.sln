@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogEngine", "BlogEngine.csproj", "{2E5CDAF0-2EE1-479B-9CE3-A33C6FDC409E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogEngine.Web", "src\BlogEngine.Web\BlogEngine.Web.csproj", "{2E5CDAF0-2EE1-479B-9CE3-A33C6FDC409E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

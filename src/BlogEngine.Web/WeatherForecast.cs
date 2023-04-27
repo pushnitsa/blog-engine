@@ -1,4 +1,4 @@
-namespace BlogEngine;
+namespace BlogEngine.Web;
 
 public class WeatherForecast
 {

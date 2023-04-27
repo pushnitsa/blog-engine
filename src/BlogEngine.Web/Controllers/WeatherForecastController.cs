@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace BlogEngine.Controllers;
+namespace BlogEngine.Web.Controllers;
+
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
