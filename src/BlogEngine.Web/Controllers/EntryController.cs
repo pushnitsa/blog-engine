@@ -1,7 +1,7 @@
 ﻿using BlogEngine.DataSource.Index;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BlogEngine.Web;
+namespace BlogEngine.Web.Controllers;
 
 [Route("api/entry")]
 [ApiController]
