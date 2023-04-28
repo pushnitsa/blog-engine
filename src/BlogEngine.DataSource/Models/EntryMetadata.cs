@@ -5,4 +5,5 @@ public class EntryMetadata
     public string RelativePath { get; set; }
     public string Id { get; set; }
     public string AbsolutePath { get; set; }
+    public string FullName { get; set; }
 }

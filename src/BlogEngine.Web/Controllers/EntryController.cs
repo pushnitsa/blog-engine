@@ -11,6 +11,7 @@ public class EntryController : ControllerBase
     {
 
     }
+
     [HttpGet("{id}")]
     public ActionResult GetEntry(string id)
     {

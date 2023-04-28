@@ -6,7 +6,7 @@ public static class AddServicesExtension
 {
     public static void AddDataSourceServices(this IServiceCollection serviceCollection)
     {
-        serviceCollection.AddSingleton<IIndexManager, IndexManager>();
-
+        serviceCollection.AddSingleton<IndexManager>();
+        serviceCollection.AddSingleton<IIndexManager>(x => x.GetRequiredService<IndexManager>());
     }
 }
