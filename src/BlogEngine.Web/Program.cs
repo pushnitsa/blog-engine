@@ -1,3 +1,6 @@
+using BlogEngine.DataSource.Extensions;
+using BlogEngine.DataSource.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.Configure<EntriesOptions>(builder.Configuration.GetSection(nameof(EntriesOptions.Entries)));
+builder.Services.AddDataSourceServices();
 
 var app = builder.Build();
 
