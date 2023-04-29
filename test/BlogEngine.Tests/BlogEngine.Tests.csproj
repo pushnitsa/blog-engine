@@ -22,4 +22,17 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\BlogEngine.DataSource\BlogEngine.DataSource.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestData\TestEntriesMetadata\test1.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\TestEntriesMetadata\test2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
