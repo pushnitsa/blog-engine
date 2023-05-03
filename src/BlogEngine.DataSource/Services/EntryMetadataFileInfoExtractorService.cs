@@ -14,6 +14,11 @@ public class EntryMetadataFileInfoExtractorService : IEntryMetadataFileInfoExtra
 
     public Task<IReadOnlyCollection<EntryMetadataFileInfo>> GetInfoAsync()
     {
+        return Task.FromResult(GetInfo());
+    }
+
+    public IReadOnlyCollection<EntryMetadataFileInfo> GetInfo()
+    {
         var metadataFiles = Directory.GetFiles(
             _entriesOptions.DiscoveryPath,
             $"*.{_entriesOptions.MetadataFileExtension}",
@@ -32,6 +37,7 @@ public class EntryMetadataFileInfoExtractorService : IEntryMetadataFileInfoExtra
 
             return result;
         }).ToList();
-        return Task.FromResult(fileInfos.AsReadOnly() as IReadOnlyCollection<EntryMetadataFileInfo>);
+
+        return fileInfos.AsReadOnly();
     }
 }

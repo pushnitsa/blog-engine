@@ -4,4 +4,6 @@ namespace BlogEngine.DataSource.Services;
 public interface IEntryMetadataFileInfoExtractor
 {
     Task<IReadOnlyCollection<EntryMetadataFileInfo>> GetInfoAsync();
+
+    IReadOnlyCollection<EntryMetadataFileInfo> GetInfo();
 }
