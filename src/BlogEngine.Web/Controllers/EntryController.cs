@@ -1,4 +1,4 @@
-﻿using BlogEngine.DataSource.Index;
+﻿using BlogEngine.DataSource.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogEngine.Web.Controllers;
@@ -7,14 +7,18 @@ namespace BlogEngine.Web.Controllers;
 [ApiController]
 public class EntryController : ControllerBase
 {
-    public EntryController(IIndexManager indexManager)
-    {
+    private readonly IEntryProvider _entryProvider;
 
+    public EntryController(IEntryProvider entryProvider)
+    {
+        _entryProvider = entryProvider;
     }
 
-    [HttpGet("{id}")]
-    public ActionResult GetEntry(string id)
+    [HttpGet("{slug}")]
+    public async Task<ActionResult> GetEntry(string slug)
     {
-        return Ok();
+        var result = await _entryProvider.GetEntryAsync(slug);
+
+        return Ok(result);
     }
 }

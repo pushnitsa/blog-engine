@@ -26,7 +26,10 @@ public class IndexManagerTests
         var metadataFileInfoExtractorMock = new Mock<IEntryMetadataFileInfoExtractor>();
         metadataFileInfoExtractorMock.Setup(x => x.GetInfo()).Returns(new[] { entryMetadataFileInfo });
 
-        var indexManager = new IndexManager(entriesOptions, metadataFileInfoExtractorMock.Object);
+        var dataLoaderMock = new Mock<IDataLoader>();
+        dataLoaderMock.Setup(x => x.Load<EntryMetadata>(It.IsAny<string>())).Returns(new EntryMetadata());
+
+        var indexManager = new IndexManager(entriesOptions, metadataFileInfoExtractorMock.Object, dataLoaderMock.Object);
 
         var index = indexManager.Indexes.First();
 
@@ -53,7 +56,10 @@ public class IndexManagerTests
         var metadataFileInfoExtractorMock = new Mock<IEntryMetadataFileInfoExtractor>();
         metadataFileInfoExtractorMock.Setup(x => x.GetInfo()).Returns(new[] { entryMetadataFileInfo });
 
-        var indexManager = new IndexManager(entriesOptions, metadataFileInfoExtractorMock.Object);
+        var dataLoaderMock = new Mock<IDataLoader>();
+        dataLoaderMock.Setup(x => x.Load<EntryMetadata>(It.IsAny<string>())).Returns(new EntryMetadata());
+
+        var indexManager = new IndexManager(entriesOptions, metadataFileInfoExtractorMock.Object, dataLoaderMock.Object);
 
         var index = indexManager.Indexes.First();
 
@@ -78,7 +84,10 @@ public class IndexManagerTests
         var metadataFileInfoExtractorMock = new Mock<IEntryMetadataFileInfoExtractor>();
         metadataFileInfoExtractorMock.Setup(x => x.GetInfo()).Returns(new[] { entryMetadataFileInfo });
 
-        var indexManager = new IndexManager(entriesOptions, metadataFileInfoExtractorMock.Object);
+        var dataLoaderMock = new Mock<IDataLoader>();
+        dataLoaderMock.Setup(x => x.Load<EntryMetadata>(It.IsAny<string>())).Returns(new EntryMetadata());
+
+        var indexManager = new IndexManager(entriesOptions, metadataFileInfoExtractorMock.Object, dataLoaderMock.Object);
 
         var index = indexManager.Indexes.First();
 

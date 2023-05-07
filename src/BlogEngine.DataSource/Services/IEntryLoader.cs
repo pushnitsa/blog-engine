@@ -1,7 +1,7 @@
 ﻿using BlogEngine.DataSource.Models;
 
 namespace BlogEngine.DataSource.Services;
-public interface IEntryProvider
+public interface IEntryLoader
 {
-    Task<Entry?> GetEntryAsync(string slug);
+    Task<Entry> LoadEntryAsync(string id);
 }
