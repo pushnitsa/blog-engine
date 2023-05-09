@@ -34,11 +34,11 @@ public class EntryProvider : IEntryProvider
 
         if (navigationCriteria.OrderDirection == DateCreationOrderDirection.Ascending)
         {
-            indexes = indexes.OrderBy(x => x.CreatedDate).AsQueryable();
+            indexes = indexes.OrderBy(x => x.CreatedDate);
         }
         else
         {
-            indexes = indexes.OrderByDescending(x => x.CreatedDate).AsQueryable();
+            indexes = indexes.OrderByDescending(x => x.CreatedDate);
         }
 
         var entryIds = indexes
