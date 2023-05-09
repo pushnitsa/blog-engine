@@ -30,4 +30,12 @@ public class EntryController : ControllerBase
 
         return Ok(result);
     }
+
+    [HttpGet("count")]
+    public async Task<ActionResult> CountEntry()
+    {
+        var result = await _entryProvider.CountAsync();
+
+        return Ok(new { Count = result });
+    }
 }

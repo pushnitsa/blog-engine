@@ -57,4 +57,11 @@ public class EntryProvider : IEntryProvider
 
         return result;
     }
+
+    public Task<int> CountAsync()
+    {
+        var result = _indexManager.Indexes.Count;
+
+        return Task.FromResult(result);
+    }
 }
