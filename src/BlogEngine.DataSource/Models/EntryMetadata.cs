@@ -1,6 +1,6 @@
 ﻿namespace BlogEngine.DataSource.Models;
 
-public class EntryMetadata
+public class EntryMetadata : ICloneable
 {
     public string? RelativePath { get; set; }
     public string? AbsolutePath { get; set; }
@@ -12,4 +12,11 @@ public class EntryMetadata
     public DateTime? ModifiedDate { get; set; }
     public List<string> Tags { get; set; }
     public string Title { get; set; }
+
+    public object Clone()
+    {
+        var result = MemberwiseClone();
+
+        return result;
+    }
 }

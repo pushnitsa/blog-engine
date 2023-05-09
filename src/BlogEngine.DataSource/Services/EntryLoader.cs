@@ -44,4 +44,17 @@ public class EntryLoader : IEntryLoader
 
         return entry;
     }
+
+    public async Task<IReadOnlyCollection<Entry>> LoadEntriesAsync(IEnumerable<string> ids)
+    {
+        var result = new List<Entry>();
+
+        foreach (var id in ids)
+        {
+            var entry = await LoadEntryAsync(id);
+            result.Add(entry);
+        }
+
+        return result;
+    }
 }

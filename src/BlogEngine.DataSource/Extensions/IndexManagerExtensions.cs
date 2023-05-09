@@ -17,4 +17,11 @@ public static class IndexManagerExtensions
 
         return result;
     }
+
+    public static IReadOnlyCollection<EntryMetadata> GetIndexCopy(this IIndexManager indexManager)
+    {
+        var result = indexManager.Indexes.Select(x => (EntryMetadata)x.Clone()).ToList();
+
+        return result;
+    }
 }

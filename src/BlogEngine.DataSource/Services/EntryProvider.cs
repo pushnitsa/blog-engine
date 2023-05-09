@@ -27,4 +27,34 @@ public class EntryProvider : IEntryProvider
 
         return entry;
     }
+
+    public async Task<NavigationResult> GetEntriesAsync(NavigationCriteria navigationCriteria)
+    {
+        var indexes = _indexManager.GetIndexCopy().AsQueryable();
+
+        if (navigationCriteria.OrderDirection == DateCreationOrderDirection.Ascending)
+        {
+            indexes = indexes.OrderBy(x => x.CreatedDate).AsQueryable();
+        }
+        else
+        {
+            indexes = indexes.OrderByDescending(x => x.CreatedDate).AsQueryable();
+        }
+
+        var entryIds = indexes
+            .Skip(navigationCriteria.Skip)
+            .Take(navigationCriteria.Take)
+            .Select(x => x.Id).ToList();
+
+        var count = indexes.Count();
+        var entries = await _entryLoader.LoadEntriesAsync(entryIds);
+
+        var result = new NavigationResult
+        {
+            Count = count,
+            Entries = entries,
+        };
+
+        return result;
+    }
 }
